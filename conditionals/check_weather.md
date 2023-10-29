@@ -2,21 +2,22 @@ Initialize a variable **weather** with a string value being "sunny", "rainy", or
 
 Write an **if** statement that logs:
 
-*"It's a beautiful day!" if **weather** is assigned to the string "sunny",
-*"Grab your umbrella." if **weather** is assigned to the string "rainy", and
-*"Let's stay inside." otherwise.
+
 
 ```JavaScript
 let weather = 'snow storm'; // 'sunny', 'rainy', ...
-
-if (weather === 'sunny') {
-  console.log("It's a beautiful day!");
-} else if (weather === 'rainy') {
-  console.log('Grab your umbrella.');
-} else {
-  console.log("Let's stay inside.");
+switch (weather) {
+  case 'sunny':
+    console.log("It's a beautiful day!");
+    break;
+  case 'rainy':
+    console.log('Grab your umbrella.');
+    break;
+  default:
+    console.log("Let's stay inside.");
 }
+
 ```
 
 ### Discussion
-We used the strict equality operator, ===, to determine if weather was 'sunny' or 'rainy'. If both of these comparisons return false, the else branch of our if statement will be executed.
+Our switch statement evaluates the provided expression, weather, and when it finds a case clause matching the value of that expression, the code within that case clause is executed. If the value of the provided expression does not match any case clause, the default clause is executed.
