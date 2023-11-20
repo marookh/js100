@@ -15,18 +15,14 @@ function isBlank(string) {
 // or
 
 function isBlank(str) {
-    if (str.length === 0) {
-        return true;
-    }
-    return false;
+    return str.trim().length === 0;
 }
 
-console.log(isBlank(' ')); // false
+console.log(isBlank('   ')); // true
 console.log(isBlank('')); // true
 console.log(isBlank('blank?')); // false
 ```
 ### Discussion
-
-A string is empty if it does not contain any characters. The easiest way to check this is to look at the length of the string.
+The `String.prototype.trim()` method removes whitespaces from both ends of a string. Once we removed those whitespaces, we can use the same strategy as in the previous exercise.
 
 
