@@ -3,6 +3,8 @@ Solution
 function last(array) {
   return array[array.length - 1];
 }
+let array = [4, 5, 6, 7];
+console.log(last(array));
 ```
 
 As in the previous exercise, `last` returns `undefined` if the input array is empty.
