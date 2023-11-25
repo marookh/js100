@@ -1,8 +1,8 @@
-function greet(greeting = 'Hello') {
-    console.log(greeting + ', world!');
+function greet(greeting = 'Hello', recipient = 'world' ) {
+    console.log(greeting + ', ' + recipient + '!');
   }
   
   greet('Salutations'); // logs: Salutations, world!
-  
+  greet('Hello', 'Launch School')
   greet();              // logs: undefined, world!
                         // should log: Hello, world!
