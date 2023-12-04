@@ -1,166 +1,122 @@
+function removeLastChar(string) {
+  return string.slice(0, string.length -1);
+  
+}
+
+console.log(removeLastChar('ciao!')); // 'ciao'
+console.log(removeLastChar('hello')); // 'hell'
+
+
+const template = 'I VERB NOUN.';
+
+const sentence = (verb, noun) => template
+    .replace('VERB', verb)
+    .replace('NOUN', noun);
+
+console.log(sentence('like', 'birds'));
+// logs: I like birds.
 /*
-function brendanEichQuote() {
-    console.log('Always bet on JavaScript.');
-}
-
-brendanEichQuote();
-// logs:
-// Always bet on JavaScript.
-
-function cite(authur, quote) {
-    console.log(`${authur} said: "${quote}"`);
-}
-cite('Brenden Eich', 'Always bet on JavaScript.');
-
-function squaredNumber(number) {
-    return number * number;
-}
-console.log(squaredNumber(3));
-console.log(squaredNumber(4));
-
-function multiplesOfThree() {
-    let divisor = 1;
-  
-    for (let dividend = 3; dividend <= 30; dividend += 3) {
-      console.log(dividend + ' / ' + divisor + ' = 3');
-      divisor += 1;
-    }
+let initGame = function () {
+  return {
+    level: 1,
+    score: 0
   }
-  
-  multiplesOfThree();
+};
 
-function compareByLength(string1, string2) {
-    if (string1.length < string2.length) {
-        return -1;
-    } else if (string1.length > string2.length) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
+let game = initGame();
+*/ 
 
-console.log(compareByLength('hello', 'by'));
-console.log(compareByLength('patience', 'perseverance')); // -1
-console.log(compareByLength('strength', 'dignity'));      //  1
-console.log(compareByLength('humor', 'grace'));           //  0
+let initGame = () => ({
+  level: 1,
+  score: 0,
+})
 
-let string = 'Captain Ruby';
-let repString = string.replace('Ruby', 'JavaScript');
-console.log(repString);
-console.log(string);
+let game = initGame();
 
-function greet(arg = 'Salamuna') {
-    switch (arg) {
-        case 'en': return 'Hi';
-        case 'ps': return 'Salam';
-        case 'ar': return 'Assalmu Alaikum';
-        case 'fa': return 'Che khabar';
-        default: return 'Hello';
-    }
-}
+console.log('Level: ' + game.level);
+console.log('Score: ' + game.score);
 
-console.log(greet('en'));
-console.log(greet('ps'));
-console.log(greet('fa'));
+let student = {
+  name: 'Carmen',
+  age: 14,
+  grade: 10,
+  courses: ['biology', 'algebra', 'composition', 'ceramics'],
+  gpa: 3.75,
+};
 
-function extractLanguageCode(locale) {
-    console.log(locale.substring(0, 2));
-}
-
-extractLanguageCode('en_US.UTF-8');  // 'en'
-extractLanguageCode('en_GB.UTF-8');  // 'en'
-extractLanguageCode('ko_KR.UTF-16'); // 'ko'
+console.log(student.courses);
 
 
-greet('Mahsa');
+let ocean = {};
+let prefix = 'Indian';
 
-function greet(name) {
-    console.log('How are ' + name + '?');
-}
+ocean[prefix] = 'Pacific';
 
-function extractLanguage(locale) {
-    return locale.substring(3, 5);
+console.log(ocean); // ?
+
+let obj = {
+  num: 42,
+  'property name': 'string value',
+  true: false,
+  fun: function() {
+    console.log('Harr Harr!');
+  },
+};
+
+for (let prop in obj) {
+  if (prop === true) {
+    console.log("It's true!");
   }
-
-console.log(extractLanguage('en_US.UTF-8'));
-
-function extractRegion(locale) {
-    return locale.substring(3, 5);
 }
 
-console.log(extractRegion('en_US.UTF-8'));
-*/
-
-/*
-
-let rlSync = require('readline-sync');
-let firstName = rlSync.question("What is your first name?\n");
-let lastName = rlSync.question("What is your last name?\n");
-
-function greet(firstName, lastName) {
-    console.log("Hello, " + firstName + ' ' + lastName + "!");
+function clone(obj) {
+  return Object.assign({}, obj);
 }
 
-greet(firstName, lastName);
+let person = {
+  title: 'Duke',
+  name: {
+    value: 'Nukem',
+    isStageName: true
+  },
+  age: 33
+};
 
-function multiply(num1, num2) {
-    return num1 * num2;
+let clonedPerson = clone(person);
+person.age = 34;
+
+console.log(person.age);       // 34
+console.log(clonedPerson.age); // 33
+
+person.name.isStageName = false;
+console.log(person.name.isStageName);       // false
+console.log(clonedPerson.name.isStageName); // false
+console.log(clone(person));
+
+
+const readline = require('readline-sync');
+
+console.log('Welcome to Calculator!');
+
+console.log("What's the first number?");
+let number1 = readline.question();
+console.log(number1);
+console.log("What's the second number?");
+let number2 = readline.question();
+
+console.log(`${number1} ${number2}`);
+console.log('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+let operation = readline.question();
+
+let output;
+if (operation === '1') { // '1' represents addition
+  output = Number(number1) + Number(number2);
+} else if (operation === '2') { // '2' represents subtraction
+  output = Number(number1) - Number(number2);
+} else if (operation === '3') { // 3 represents multiplication
+  output = Number(number1) * Number(number2);
+} else if (operation === '4') { // 4 represents division
+  output = Number(number1) / Number(number2);
 }
 
-function getNumber() {
-    
-    let num1 = Number(rlSync.question("Enter your first number: "));
-    let num2 = Number(rlSync.question("Enter your second number: "));
-    return multiply(num1, num2);
-}
-
-console.log(getNumber());
-
-
-
-function extractLanguage(locale) {
-    return locale.split('_')[0];
-  }
-
-let language = extractLanguage('en_US.UTF-8');
-
-function extractRegion(locale) {
-    return locale.substring(3, 5);
-}
-
-let region = extractRegion('en_US.UTF-8');
-*/
-
-function extractLanguage(locale) {
-    return locale.split('_')[0];
-  }
-  
-  function extractRegion(locale) {
-    return locale.split('.')[0].split('_')[1];
-  }
-  
-  function greet(lang) {
-    switch (lang) {
-    case "en" : return 'Hi!';
-    case "fr" : return 'Salut!';
-    case "pt" : return 'Ola!';
-    case "de" : return "Hallo";
-    case "sv" : return "Hej";
-    case "af" : return "Haai";
-    }
-  }
-  
-  function localGreet(locale) {
-    let language = locale.split('_')[0];
-    let region = locale.split('.')[0].split('_')[1];
-      switch (region) {
-      case "US" : return "Hey!";
-      case "GB" : return "Hello!";
-      case "AU" : return "Howdy!";
-      default : return greet(language);
-      }
-  }
-  
-  console.log(localGreet("en_US.UTF-8"));
-  console.log(localGreet('en_GB.UTF-8'));
-  console.log(localGreet('fr_MA.UTF-16'));
+console.log(`The result is: ${output}`);
