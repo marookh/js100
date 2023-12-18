@@ -11,8 +11,9 @@ let mahsoo = {
       city: 'Aarhus'
     },
     occupation: 'engineer',
-    greet: (person) => `Hej, ${person}!` // a function
+    greet: (person) => `Hej, ${person}!` // arrow function
   };
   
   // method invocation
   console.log(mahsoo.greet('Bobby')); // Hej, Bobby!
+  console.log(mahsoo.greet('baby')); // Heg, baby!
